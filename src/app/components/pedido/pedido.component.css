@@ -1,0 +1,118 @@
+h2 {
+    text-align: center;
+}
+
+button {
+    margin-top: 2ch;
+}
+
+fieldset {
+    padding-top: 1ch;
+    padding-bottom: 1ch;
+}
+
+textarea {
+    resize: none;
+}
+
+div {
+    padding: 0.2rem;
+}
+
+div#head {
+    padding-top: 0%;
+    margin: 0%;
+    height: 3rem;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    height: 4rem;
+    margin: 0%;
+    padding: 0%;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+p#tittle {
+    font-size: x-large;
+    text-align: center;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+div .form-check {
+    margin-left: 75%;
+}
+
+
+/* button {
+    width: 100%;
+    height: 100%;
+} */
+
+
+/* From uiverse.io by @SanketSuryawanshi */
+
+.main_div {
+    --color: #333;
+    position: relative;
+    z-index: 1;
+}
+
+.main_div::before {
+    content: '';
+    position: absolute;
+    width: 2.5em;
+    height: 2.5em;
+    background: transparent;
+    top: -1px;
+    left: -1px;
+    z-index: -5px;
+    border-top: 2px solid var(--color);
+    border-left: 2px solid var(--color);
+    transition: 0.5s;
+}
+
+.main_div::after {
+    content: '';
+    position: absolute;
+    width: 2.5em;
+    height: 2.5em;
+    background: transparent;
+    bottom: -2px;
+    right: -2px;
+    z-index: -5px;
+    border-right: 2px solid var(--color);
+    border-bottom: 2px solid var(--color);
+    transition: 0.5s;
+}
+
+.main_div:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.main_div:hover::after {
+    width: 100%;
+    height: 100%;
+}
+
+.main_div button {
+    padding: 0.7em 2em;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: 16px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: Poppins;
+    width: 100%;
+}
