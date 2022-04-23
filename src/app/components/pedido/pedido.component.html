@@ -26,28 +26,28 @@
         </fieldset>
 
         <fieldset class="form-group container ">
-            <legend>Dirección</legend>
+            <legend>Datos del envio</legend>
             <div class="row">
-                <div class="form-floating col-md-6">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here">
-                    <label for="floatingInput">Calle</label>
-                </div>
-                <div class="form-floating col-md-6">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here">
-                    <label for="floatingInput">Altura</label>
-                </div>
-                <div class="form-floating col-md-12 ">
-                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                  <option selected>Ciudades disponibles</option>
-                  <option value="1">Laguna Larga</option>
-                  <option value="2">Rio Segundo</option>
-                  <option value="3">Pilar</option>
+                <div class="col-md-6">
+                    <div class="form-floating col-md-12">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here">
+                        <label for="floatingInput">Dirección</label>
+                    </div>
+                    <div class="form-floating col-md-12">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                  <option value="1" selected>Córdoba</option>
+                  <option value="2">Villa María</option>
+                  <option value="3">Villa Allende</option>
                 </select>
-                    <label for="floatingSelect">Ciudad</label>
+                        <label for="floatingSelect">Ciudad</label>
+                    </div>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Referencia</label>
+                    </div>
                 </div>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Referencia</label>
+                <div class="col-md-6">
+                    <img src="../../../assets/img/img_maps_cba.jpg" class="img-fluid" alt="imagen de google maps">
                 </div>
             </div>
 
