@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark animated fadeInRight">
     <div class="container-fluid center" id="head">
 
-        <p style="color: aliceblue;" id="tittle"><br> SU PEDIDO DE "LO QUE SEA"</p>
+        <p style="color: aliceblue;z-index:999" id="tittle"><br> SU PEDIDO DE "LO QUE SEA"</p>
 
     </div>
 </nav>
@@ -10,43 +10,42 @@
 
 <h4 class="m-5">Ingrese los datos necesarios para el pedido</h4> -->
 <div class="container animated fadeInLeftBig fast">
-    <form class="m-5" (ngSubmit)="submit(f)" #f="ngForm" autocomplete="off">
-
+    <form class="m-5" (ngSubmit)="submit(f)" #f="ngForm" autocomplete="off" ngNativeValidate>
         <fieldset class="form-group container">
-            <legend>Producto</legend>
+            <legend>Datos del pedido</legend>
             <div class="row">
-                <div class="form-floating ">
-                    <textarea class="form-control" placeholder="El cadete debe saber que quieres pedir" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Descripción</label>
+                <div class="form-floating col-md-12">
+                    <input type="text" class="form-control" required placeholder="El cadete debe saber que quieres pedir" id="floatingTextarea2">
+                    <label for="floatingTextarea2">Descripción<span class="text-danger"> *</span></label>
                 </div>
                 <div class="">
                     <input class="form-control form-control-sm" id="formFileSm" type="file">
+                </div>
+                <div class="">
+                    <label for="formDate">Fecha de recepción <span class="text-danger"> *</span></label>
+                    <input class="form-control form-control-sm" required id="formDate" type="date">
                 </div>
             </div>
         </fieldset>
 
         <fieldset class="form-group container ">
-            <legend>Dirección</legend>
+            <legend>Dirección de comercio</legend>
             <div class="row">
-                <div class="form-floating col-md-6">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here">
-                    <label for="floatingInput">Calle</label>
+                <div class="form-floating col-md-12">
+                    <input type="text" class="form-control" required id="floatingInput" placeholder="Leave a comment here">
+                    <label for="floatingInput">Dirección<span class="text-danger"> *</span></label>
                 </div>
-                <div class="form-floating col-md-6">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here">
-                    <label for="floatingInput">Altura</label>
-                </div>
-                <div class="form-floating col-md-12 ">
-                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                  <option selected>Ciudades disponibles</option>
-                  <option value="1">Laguna Larga</option>
-                  <option value="2">Rio Segundo</option>
-                  <option value="3">Pilar</option>
-                </select>
-                    <label for="floatingSelect">Ciudad</label>
+                <div class="form-floating col-md-12">
+                    <select class="form-select" id="floatingSelect" required aria-label="Floating label select example">
+                        <option value="1" selected>Laguna Larga</option>
+                        <option value="2">Rio Segundo</option>
+                        <option value="3">Pilar</option>
+                    </select>
+                    <label for="floatingSelect">Ciudad <span class="text-danger"> *</span></label>
                 </div>
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                        style="height: 100px"></textarea>
                     <label for="floatingTextarea2">Referencia</label>
                 </div>
             </div>
@@ -54,26 +53,45 @@
         </fieldset>
 
         <fieldset class="form-group container ">
-            <legend>Métodos de pago</legend>
-            <div class="row center">
+            <legend>Dirección de destino</legend>
+            <div class="row">
                 <div class="form-floating col-md-12">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" [value]="montoAPagar" disabled>
-                    <label for="floatingInput">Total a pagar:</label>
+                    <input type="text" class="form-control" required id="floatingInput" placeholder="Leave a comment here">
+                    <label for="floatingInput">Dirección<span class="text-danger"> *</span></label>
+                </div>
+                <div class="form-floating col-md-12 ">
+                    <select class="form-select" id="floatingSelect" required aria-label="Floating label select example">
+                        <option value="1">Laguna Larga</option>
+                        <option value="2">Rio Segundo</option>
+                        <option value="3">Pilar</option>
+                    </select>
+                    <label for="floatingSelect">Ciudad<span class="text-danger"> *</span></label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                        style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Referencia</label>
                 </div>
             </div>
+
+        </fieldset>
+
+        <fieldset class="form-group container ">
+            <legend>Métodos de pago<span class="text-danger"> *</span></legend>
             <div class="row justify-content">
                 <!-- asada -->
-
                 <div class="col-md-6">
                     <div class="row center">
                         <div class="form-check form-check-inline center">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radio1" value="option1" (click)="cambiarEstadoR1()">
+                            <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="radio1"
+                                value="option1" (click)="cambiarEstadoR1()">
                             <label class="form-check-label" for="inlineRadio1">Pago en efectivo</label>
                         </div>
                     </div>
                     <div class="row center animated fadeInDown" *ngIf="radioMarcado1">
                         <div class="form-floating col-md-10 ">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here">
+                            <input type="text" required class="form-control" id="floatingInput"
+                                placeholder="Leave a comment here">
                             <label for="floatingInput">Monto con el que paga</label>
                         </div>
                     </div>
@@ -81,45 +99,53 @@
                 <div class="col-md-6">
                     <div class="row center">
                         <div class="form-check form-check-inline center">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radio2" value="option2" (click)="cambiarEstadoR2()">
+                            <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="radio2"
+                                value="option2" (click)="cambiarEstadoR2()">
                             <label class="form-check-label" for="inlineRadio2">Pago con tarjeta VISA</label>
                         </div>
                     </div>
                     <div class="row animated fadeInDown" *ngIf="radioMarcado2">
                         <div class="row center">
                             <div class="form-floating col-md-10">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here">
+                                <input type="text" class="form-control" required id="floatingInput"
+                                    placeholder="Leave a comment here">
                                 <label for="floatingInput">Número tarjeta</label>
                             </div>
                         </div>
                         <div class="row center">
                             <div class="form-floating col-md-10">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here">
+                                <input type="text" class="form-control" required id="floatingInput"
+                                    placeholder="Leave a comment here">
                                 <label for="floatingInput">Titular</label>
                             </div>
                         </div>
                         <div class="row center">
                             <div class="form-floating col-md-5">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here">
+                                <input type="text" class="form-control" required id="floatingInput"
+                                    placeholder="Leave a comment here">
                                 <label for="floatingInput">Vence</label>
                             </div>
                             <div class="form-floating col-md-5">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here">
+                                <input type="text" class="form-control" required id="floatingInput"
+                                    placeholder="Leave a comment here">
                                 <label for="floatingInput">CVC</label>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
-
-
+            
+            <div class="row center">
+                <div class="form-floating col-md-12">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here"
+                        [value]="montoAPagar" disabled>
+                    <label for="floatingInput">Total a pagar:</label>
+                </div>
+            </div>
         </fieldset>
 
         <div class="row center">
-            <div class="col-md-4 main_div">
+            <div class="col-md-4">
                 <button type="submit">Hacer Pedido</button>
             </div>
         </div>

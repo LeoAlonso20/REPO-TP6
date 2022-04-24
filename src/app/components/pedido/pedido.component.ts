@@ -9,33 +9,36 @@ import { NgForm } from '@angular/forms';
 })
 export class PedidoComponent implements OnInit {
 
-  montoAPagar : string = ''
-  radioMarcado1 : boolean = false;
-  radioMarcado2 : boolean = false;
+  montoAPagar: string = ''
+  radioMarcado1: boolean = false;
+  radioMarcado2: boolean = false;
 
+  submitted = false;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  submit( f : NgForm ){
+  submit(f: NgForm) {
+    debugger;
+    
     console.log('hola');
     console.log(f)
   }
 
-  cambiarEstadoR1(){
-    
+  cambiarEstadoR1() {
+
     this.radioMarcado1 = true;
     this.radioMarcado2 = false;
-    
+
   }
 
-  cambiarEstadoR2(){
-    
+  cambiarEstadoR2() {
+
     this.radioMarcado1 = false;
     this.radioMarcado2 = true;
-    
+
   }
 
 

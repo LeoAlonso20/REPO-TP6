@@ -63,7 +63,6 @@ div .form-check {
 .main_div {
     --color: #333;
     position: relative;
-    z-index: 1;
 }
 
 .main_div::before {
@@ -74,7 +73,6 @@ div .form-check {
     background: transparent;
     top: -1px;
     left: -1px;
-    z-index: -5px;
     border-top: 2px solid var(--color);
     border-left: 2px solid var(--color);
     transition: 0.5s;
@@ -88,7 +86,6 @@ div .form-check {
     background: transparent;
     bottom: -2px;
     right: -2px;
-    z-index: -5px;
     border-right: 2px solid var(--color);
     border-bottom: 2px solid var(--color);
     transition: 0.5s;
