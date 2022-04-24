@@ -15,6 +15,8 @@ export class PedidoComponent implements OnInit {
 
   submitted = false;
 
+  minDate=new Date().toISOString().split('T')[0];
+
   constructor() { }
 
   ngOnInit(): void {
