@@ -9,7 +9,9 @@ import { NgForm } from '@angular/forms';
 })
 export class PedidoComponent implements OnInit {
 
-  montoAPagar: string = ''
+  montoAPagar: string = '';
+
+  tipoEnvio : string = '';
 
   radioMarcado1: boolean = false;
   radioMarcado2: boolean = false;
@@ -27,7 +29,11 @@ export class PedidoComponent implements OnInit {
 
   listaDomicilios : string[] = ['General Paz 25', 'Av. Sabatini 240', 'Colombia 200', 'General Paz 800', 'San Lucas 120', 
                                 'Buenos Aires 550', 'Rio Cuarto 45', 'Bv. San Juan 420', 'Lima 20', 'Bartolomé Mitre 600',
-                                'Azcuénaga 708', 'Av. Rivadavia 1200']
+                                'Azcuénaga 708', 'Av. Rivadavia 1200'];
+  
+  listaTipoEnvios : string[] = ['0-500 mts', '501-1000 mts', '1001-1500 mts', '1501-3000 mts', '3001-6000 mts', '6001-12000 mts'];
+
+  listaCostosEnvios : string[] = ['$100.00', '$140.00', '$180.00', '$250.00', '$400.00', '$750.00'];
 
   constructor() { }
 
@@ -80,7 +86,15 @@ export class PedidoComponent implements OnInit {
 
     let random = Math.random() * (12 - 1) + 1;
     this.domicilio = this.listaDomicilios[Math.floor(random)];
-    
+
+  }
+
+  calcularEnvio(){
+
+    let random = Math.random() * (6 - 1) + 1;
+    this.tipoEnvio = this.listaDomicilios[Math.floor(random)];
+    this.montoAPagar = this.listaCostosEnvios[Math.floor(random)];
+
   }
 
 

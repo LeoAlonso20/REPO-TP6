@@ -15,7 +15,10 @@
             <legend>Datos del pedido</legend>
             <div class="row">
                 <div class="form-floating col-md-12">
-                    <input type="text" class="form-control" required placeholder="El cadete debe saber que quieres pedir" id="floatingTextarea2">
+                    <input type="text" class="form-control" required placeholder="El cadete debe saber que quieres pedir" id="floatingTextarea2" [ngClass]="{'is-invalid' : descripcionPed.invalid && descripcionPed.touched}" ngModel name="descripcionPed" #descripcionPed="ngModel">
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        Debe ingresar una descripción para el pedido.
+                    </div>
                     <label for="floatingTextarea2">Descripción<span class="text-danger"> *</span></label>
                 </div>
                 <div class="">
@@ -51,7 +54,10 @@
             <div class="row">
                 <div class="row col-md-8" id="maps">
                     <div class="form-floating col-md-12">
-                        <input type="text" class="form-control" required id="floatingInput" placeholder="Leave a comment here" name="direccionComercio" [ngModel]="domicilio">
+                        <input type="text" class="form-control" required id="floatingInput" placeholder="Leave a comment here" [ngModel]="domicilio" [ngClass]="{'is-invalid' : direccionCom.invalid && direccionCom.touched}" ngModel name="direccionCom" #direccionCom="ngModel">
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            Debe ingresar una dirección de comercio.
+                        </div>
                         <label for="floatingInput">Dirección<span class="text-danger"> *</span></label>
                     </div>
                     <div class="form-floating col-md-12">
@@ -81,9 +87,24 @@
         <fieldset class="form-group container ">
             <legend>Dirección de destino</legend>
             <div class="row">
-                <div class="form-floating col-md-12">
-                    <input type="text" class="form-control" required id="floatingInput" placeholder="Leave a comment here">
+                <div class="form-floating col-md-6">
+                    <input type="text" class="form-control" required id="floatingInput" placeholder="Leave a comment here" [ngClass]="{'is-invalid' : direccionEnt.invalid && direccionEnt.touched}" ngModel name="direccionEnt" #direccionEnt="ngModel">
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        Debe ingresar una dirección de destino.
+                    </div>
                     <label for="floatingInput">Dirección<span class="text-danger"> *</span></label>
+                </div>
+                <div class="form-floating col-md-2">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here">
+                    <label for="floatingInput">Torre</label>
+                </div>
+                <div class="form-floating col-md-2">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here">
+                    <label for="floatingInput">Piso</label>
+                </div>
+                <div class="form-floating col-md-2">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here">
+                    <label for="floatingInput">Dpto</label>
                 </div>
                 <div class="form-floating col-md-12 ">
                     <select class="form-select" id="floatingSelect" required aria-label="Floating label select example">
@@ -102,9 +123,19 @@
         </fieldset>
 
         <fieldset class="form-group container ">
-            <legend>Métodos de pago<span class="text-danger"> *</span></legend>
+            <legend>Datos de Pago</legend>
+            <div class="row center">
+                <div class="form-floating col-md-6">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" [value]="montoAPagar" disabled>
+                    <label for="floatingInput">Total a pagar:</label>
+                </div>
+                <div class="form-floating col-md-6">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" [value]="montoAPagar" disabled>
+                    <label for="floatingInput">Tipo de envio:</label>
+                </div>
+            </div>
             <div class="row justify-content">
-                <!-- asada -->
+                <label for="" style="font-size:large;">Métodos de pago<span class="text-danger"> *</span></label>
                 <div class="col-md-6">
                     <div class="row center">
                         <div class="form-check form-check-inline center">
@@ -150,13 +181,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="row center">
-                <div class="form-floating col-md-12">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" [value]="montoAPagar" disabled>
-                    <label for="floatingInput">Total a pagar:</label>
                 </div>
             </div>
         </fieldset>
