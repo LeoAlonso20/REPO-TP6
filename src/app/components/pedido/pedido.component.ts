@@ -102,6 +102,10 @@ export class PedidoComponent implements OnInit {
 
   }
 
+  agregarBarra( fechaVenc : string ){
+    // hacer el comportamiento para que se agrega la barra cuando se escribieron 2 caracteres (MM/YYYY)
+  }
+
 
 
 }

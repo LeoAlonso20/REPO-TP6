@@ -182,7 +182,8 @@
                         </div>
                         <div class="row center">
                             <div class="form-floating col-md-5">
-                                <input type="text" class="form-control" required id="floatingInput" maxlength="7" pattern="\d{1,2}\/\d{4}" placeholder="Leave a comment here" [ngClass]="{'is-invalid' : vencTarjeta.invalid && vencTarjeta.touched}" ngModel name="vencTarjeta" #vencTarjeta="ngModel">
+                                <input type="text" class="form-control" required id="floatingInput" maxlength="7" pattern="\d{1,2}\/\d{4}" placeholder="Leave a comment here" [ngClass]="{'is-invalid' : vencTarjeta.invalid && vencTarjeta.touched}" ngModel name="vencTarjeta" #vencTarjeta="ngModel"
+                                    (keyup)="agregarBarra(vencTarjeta.value)">
                                 <div id="validationServer03Feedback" class="invalid-feedback">
                                     Revise la fecha de vencimiento.
                                 </div>
