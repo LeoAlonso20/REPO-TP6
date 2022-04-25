@@ -41,10 +41,15 @@ export class PedidoComponent implements OnInit {
   }
 
   submit(f: NgForm) {
-    debugger;
     
-    console.log('hola');
-    console.log(f)
+    debugger;
+
+    if (f.invalid){
+      Object.values( f.controls ).forEach( control => {
+          control.markAsTouched;
+      });
+    }
+    
   }
 
   cambiarEstadoR1() {
