@@ -21,9 +21,27 @@
                 <div class="">
                     <input class="form-control form-control-sm" id="formFileSm" type="file">
                 </div>
-                <div class="">
-                    <label for="formDate">Fecha de recepción <span class="text-danger"> *</span></label>
-                    <input class="form-control form-control-sm" required id="formDate" type="date" min="2022-04-27">
+                <div class="col-md-6">
+                    <div class="row center">
+                        <div class="form-check form-check-inline center">
+                            <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="radio3" value="option1" (click)="cambiarEstadoR3()">
+                            <label class="form-check-label" for="inlineRadio1">Lo antes posible</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row center">
+                        <div class="form-check form-check-inline center">
+                            <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="radio1" value="option1" (click)="cambiarEstadoR4()">
+                            <label class="form-check-label" for="inlineRadio1">Fecha/Hora Programada</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input *ngIf="radioMarcado4" class="form-control form-control animated fadeInDown" required id="formDate" type="date" min="2022-04-27">
+                        </div>
+                        <div class="col-md-3">
+                            <input *ngIf="radioMarcado4" class="form-control form-control animated fadeInDown" required id="formDate" type="time" min="2022-04-27">
+                        </div>
+                    </div>
                 </div>
             </div>
         </fieldset>
@@ -44,8 +62,7 @@
                     <label for="floatingSelect">Ciudad <span class="text-danger"> *</span></label>
                 </div>
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                        style="height: 100px"></textarea>
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                     <label for="floatingTextarea2">Referencia</label>
                 </div>
             </div>
@@ -68,8 +85,7 @@
                     <label for="floatingSelect">Ciudad<span class="text-danger"> *</span></label>
                 </div>
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                        style="height: 100px"></textarea>
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                     <label for="floatingTextarea2">Referencia</label>
                 </div>
             </div>
@@ -83,15 +99,13 @@
                 <div class="col-md-6">
                     <div class="row center">
                         <div class="form-check form-check-inline center">
-                            <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="radio1"
-                                value="option1" (click)="cambiarEstadoR1()">
+                            <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="radio1" value="option1" (click)="cambiarEstadoR1()">
                             <label class="form-check-label" for="inlineRadio1">Pago en efectivo</label>
                         </div>
                     </div>
                     <div class="row center animated fadeInDown" *ngIf="radioMarcado1">
                         <div class="form-floating col-md-10 ">
-                            <input type="text" required class="form-control" id="floatingInput"
-                                placeholder="Leave a comment here">
+                            <input type="text" required class="form-control" id="floatingInput" placeholder="Leave a comment here">
                             <label for="floatingInput">Monto con el que paga</label>
                         </div>
                     </div>
@@ -99,46 +113,40 @@
                 <div class="col-md-6">
                     <div class="row center">
                         <div class="form-check form-check-inline center">
-                            <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="radio2"
-                                value="option2" (click)="cambiarEstadoR2()">
+                            <input class="form-check-input" required type="radio" name="inlineRadioOptions" id="radio2" value="option2" (click)="cambiarEstadoR2()">
                             <label class="form-check-label" for="inlineRadio2">Pago con tarjeta VISA</label>
                         </div>
                     </div>
                     <div class="row animated fadeInDown" *ngIf="radioMarcado2">
                         <div class="row center">
                             <div class="form-floating col-md-10">
-                                <input type="text" class="form-control" required id="floatingInput"
-                                    placeholder="Leave a comment here">
+                                <input type="text" class="form-control" required id="floatingInput" placeholder="Leave a comment here">
                                 <label for="floatingInput">Número tarjeta</label>
                             </div>
                         </div>
                         <div class="row center">
                             <div class="form-floating col-md-10">
-                                <input type="text" class="form-control" required id="floatingInput"
-                                    placeholder="Leave a comment here">
+                                <input type="text" class="form-control" required id="floatingInput" placeholder="Leave a comment here">
                                 <label for="floatingInput">Titular</label>
                             </div>
                         </div>
                         <div class="row center">
                             <div class="form-floating col-md-5">
-                                <input type="text" class="form-control" required id="floatingInput"
-                                    placeholder="Leave a comment here">
+                                <input type="text" class="form-control" required id="floatingInput" placeholder="Leave a comment here">
                                 <label for="floatingInput">Vence</label>
                             </div>
                             <div class="form-floating col-md-5">
-                                <input type="text" class="form-control" required id="floatingInput"
-                                    placeholder="Leave a comment here">
+                                <input type="text" class="form-control" required id="floatingInput" placeholder="Leave a comment here">
                                 <label for="floatingInput">CVC</label>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="row center">
                 <div class="form-floating col-md-12">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here"
-                        [value]="montoAPagar" disabled>
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" [value]="montoAPagar" disabled>
                     <label for="floatingInput">Total a pagar:</label>
                 </div>
             </div>

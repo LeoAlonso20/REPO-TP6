@@ -10,8 +10,12 @@ import { NgForm } from '@angular/forms';
 export class PedidoComponent implements OnInit {
 
   montoAPagar: string = ''
+
   radioMarcado1: boolean = false;
   radioMarcado2: boolean = false;
+
+  radioMarcado3: boolean = false;
+  radioMarcado4: boolean = false;
 
   submitted = false;
 
@@ -42,6 +46,21 @@ export class PedidoComponent implements OnInit {
     this.radioMarcado2 = true;
 
   }
+
+  cambiarEstadoR3() {
+
+    this.radioMarcado3 = true;
+    this.radioMarcado4 = false;
+
+  }
+
+  cambiarEstadoR4() {
+
+    this.radioMarcado3 = false;
+    this.radioMarcado4 = true;
+
+  }
+
 
 
 }
