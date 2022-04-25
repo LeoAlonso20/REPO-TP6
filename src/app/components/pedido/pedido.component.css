@@ -31,6 +31,7 @@ nav {
     height: 4rem;
     margin: 0%;
     padding: 0%;
+    background: #233329;
 }
 
 .center {
@@ -69,8 +70,8 @@ button {
 }
 
 button:hover {
-    background-color: #2EE59D;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    background-color: #69FFF1;
+    box-shadow: 0px 15px 20px #66beb6;
     color: #fff;
     transform: translateY(-7px);
 }
