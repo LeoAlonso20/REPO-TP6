@@ -49,21 +49,30 @@
         <fieldset class="form-group container ">
             <legend>Dirección de comercio</legend>
             <div class="row">
-                <div class="form-floating col-md-12">
-                    <input type="text" class="form-control" required id="floatingInput" placeholder="Leave a comment here">
-                    <label for="floatingInput">Dirección<span class="text-danger"> *</span></label>
-                </div>
-                <div class="form-floating col-md-12">
-                    <select class="form-select" id="floatingSelect" required aria-label="Floating label select example">
-                        <option value="1" selected>Córdoba</option>
+                <div class="row col-md-8" id="maps">
+                    <div class="form-floating col-md-12">
+                        <input type="text" class="form-control" required id="floatingInput" placeholder="Leave a comment here" name="direccionComercio" [ngModel]="domicilio">
+                        <label for="floatingInput">Dirección<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="form-floating col-md-12">
+                        <select class="form-select" id="floatingSelect" required aria-label="Floating label select example" (change)="cambiarCiudad(s.value)" #s>
+                        <option value="1">Córdoba</option>
                         <option value="2">Villa María</option>
                         <option value="3">Villa Allende</option>
                     </select>
-                    <label for="floatingSelect">Ciudad <span class="text-danger"> *</span></label>
+                        <label for="floatingSelect">Ciudad <span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Referencia</label>
+                    </div>
                 </div>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Referencia</label>
+                <div class="row center col-md-4">
+                    <img *ngIf="opcionCiudad == '' || opcionCiudad == 1" src="../../../assets/img/cba2.jpg" class="img-fluid animated fadeIn" alt="..." (click)="simularDireccion()">
+                    <img *ngIf="opcionCiudad == '2'" src="../../../assets/img/vm.jpg" class="img-fluid animated fadeIn" alt="..." (click)="simularDireccion()">
+                    <img *ngIf="opcionCiudad == '3'" src="../../../assets/img/va.jpg" class="img-fluid animated fadeIn" alt="..." (click)="simularDireccion()">
+
+
                 </div>
             </div>
 

@@ -21,6 +21,14 @@ export class PedidoComponent implements OnInit {
 
   minDate=new Date().toISOString().split('T')[0];
 
+  opcionCiudad : any = '';
+
+  domicilio : string = '';
+
+  listaDomicilios : string[] = ['General Paz 25', 'Av. Sabatini 240', 'Colombia 200', 'General Paz 800', 'San Lucas 120', 
+                                'Buenos Aires 550', 'Rio Cuarto 45', 'Bv. San Juan 420', 'Lima 20', 'Bartolomé Mitre 600',
+                                'Azcuénaga 708', 'Av. Rivadavia 1200']
+
   constructor() { }
 
   ngOnInit(): void {
@@ -59,6 +67,20 @@ export class PedidoComponent implements OnInit {
     this.radioMarcado3 = false;
     this.radioMarcado4 = true;
 
+  }
+
+  cambiarCiudad(ciudadSeleccionada : string){
+
+    this.opcionCiudad = ciudadSeleccionada;
+    this.domicilio = '';
+
+  } 
+  
+  simularDireccion(){
+
+    let random = Math.random() * (12 - 1) + 1;
+    this.domicilio = this.listaDomicilios[Math.floor(random)];
+    
   }
 
 

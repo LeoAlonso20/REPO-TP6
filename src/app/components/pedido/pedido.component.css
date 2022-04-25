@@ -19,6 +19,10 @@ div {
     padding: 0.2rem;
 }
 
+div#maps {
+    margin-right: 0.5em;
+}
+
 div#head {
     padding-top: 0%;
     margin: 0%;
@@ -32,6 +36,10 @@ nav {
     margin: 0%;
     padding: 0%;
     background: #233329;
+}
+
+img {
+    cursor: pointer;
 }
 
 .center {
