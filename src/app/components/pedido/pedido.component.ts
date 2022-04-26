@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
+import swal from 'sweetalert2'
 
 
 
@@ -43,14 +45,26 @@ export class PedidoComponent implements OnInit {
   }
 
   submit(f: NgForm) {
-    
-    debugger;
 
     if (f.invalid){
+      Swal.fire({
+        icon: 'error',
+        title : 'No se ha podido realizar el pedido',
+        text: 'Revise los datos ingresados'
+      })
+
       Object.values( f.controls ).forEach( control => {
-          control.markAsTouched;
+          control.markAllAsTouched;
       });
+    }else{
+      Swal.fire({
+        icon: 'success',
+        title: 'Pedido realizado con exito',
+        text: 'El cadete buscará su pedido y se le entregará en su domicilio'
+      })
     }
+
+    
     
   }
 
@@ -101,5 +115,6 @@ export class PedidoComponent implements OnInit {
       let random = Math.random() * (6 - 1) + 1;
       this.tipoEnvio = this.listaEnvios[Math.floor(Math.random() * (6 - 1) + 1)][0];
       this.montoAPagar = this.listaEnvios.filter( elm => elm[0] == this.tipoEnvio)[0][1];
+
   }
 }

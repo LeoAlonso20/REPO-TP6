@@ -10,7 +10,7 @@
 
 <h4 class="m-5">Ingrese los datos necesarios para el pedido</h4> -->
 <div class="container animated fadeInLeftBig fast">
-    <form class="m-5" (ngSubmit)="submit(f)" #f="ngForm" autocomplete="off" ngNativeValidate>
+    <form class="m-5" (ngSubmit)="submit(f)" #f="ngForm" autocomplete="off">
         <fieldset class="form-group container">
             <legend>Datos del pedido</legend>
             <div class="row">
@@ -136,7 +136,7 @@
                     <label for="floatingInput">Tipo de envio:</label>
                 </div>
                 <div class="col-md-2">
-                    <button id="btnEnvio" (click)="calcularEnvio()">Calcular envio</button>
+                    <button (click)="calcularEnvio()">Calcular envio</button>
                 </div>
             </div>
             <div class="row justify-content">
