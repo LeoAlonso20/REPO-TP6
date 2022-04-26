@@ -168,7 +168,7 @@
                     <div class="row animated fadeInDown" *ngIf="radioMarcado2">
                         <div class="row center">
                             <div class="form-floating col-md-10">
-                                <input type="text" class="form-control" required id="floatingInput" pattern="[4]{1}[0-9]{15}" placeholder="Leave a comment here" [ngClass]="{'is-invalid' : numTarjeta.invalid && numTarjeta.touched}" ngModel name="numTarjeta" #numTarjeta="ngModel">
+                                <input type="text" class="form-control" required id="floatingInput" pattern="[4]{1}[0-9]{15}" maxlength="16" placeholder="Leave a comment here" [ngClass]="{'is-invalid' : numTarjeta.invalid && numTarjeta.touched}" ngModel name="numTarjeta" #numTarjeta="ngModel">
                                 <div id="validationServer03Feedback" class="invalid-feedback">
                                     Revise el número de la tarjeta.
                                 </div>
