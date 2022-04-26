@@ -9,8 +9,6 @@ import { NgForm } from '@angular/forms';
 })
 export class PedidoComponent implements OnInit {
 
-  
-
   radioMarcado1: boolean = false;
   radioMarcado2: boolean = false;
 
@@ -25,21 +23,20 @@ export class PedidoComponent implements OnInit {
 
   domicilio : string = '';
 
-  montoPago : string = '';
-
   listaDomicilios : string[] = ['General Paz 25', 'Av. Sabatini 240', 'Colombia 200', 'General Paz 800', 'San Lucas 120', 
                                 'Buenos Aires 550', 'Rio Cuarto 45', 'Bv. San Juan 420', 'Lima 20', 'Bartolomé Mitre 600',
                                 'Azcuénaga 708', 'Av. Rivadavia 1200'];
-  
-  listaTipoEnvios : string[] = ['0-500 mts', '501-1000 mts', '1001-1500 mts', '1501-3000 mts', '3001-6000 mts', '6001-12000 mts'];
 
-  listaCostosEnvios : string[] = ['$100.00', '$140.00', '$180.00', '$250.00', '$400.00', '$750.00'];
-  
-  montoAPagar : string = this.listaCostosEnvios[Math.floor(Math.random() * (6 - 1) + 1)];
+  listaEnvios : string[][] = [['0-500 mts','$100.00'], ['501-1000 mts', '$140.00'], ['1001-1500 mts', '$180.00'], 
+  ['1501-3000 mts', '$250.00'], ['3001-6000 mts', '$400.00'], ['6001-12000 mts', '$750.00']]
 
-  tipoEnvio : string = this.listaTipoEnvios[Math.floor(Math.random() * (6 - 1) + 1)];
+  montoAPagar : string = this.listaEnvios[Math.floor(Math.random() * (6 - 1) + 1)][1];
 
-  constructor() { }
+  tipoEnvio : string = this.listaDomicilios.filter( elm => elm[1] == this.montoAPagar)[0];
+
+  constructor() {
+    console.log(this.tipoEnvio, this.montoAPagar)
+   }
 
   ngOnInit(): void {
   }
