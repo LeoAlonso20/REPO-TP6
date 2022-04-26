@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 
+
 @Component({
   selector: 'app-pedido',
   templateUrl: './pedido.component.html',
@@ -23,6 +24,10 @@ export class PedidoComponent implements OnInit {
 
   domicilio : string = '';
 
+  montoAPagar : string = '';
+
+  tipoEnvio : string = '';
+
   listaDomicilios : string[] = ['General Paz 25', 'Av. Sabatini 240', 'Colombia 200', 'General Paz 800', 'San Lucas 120', 
                                 'Buenos Aires 550', 'Rio Cuarto 45', 'Bv. San Juan 420', 'Lima 20', 'Bartolomé Mitre 600',
                                 'Azcuénaga 708', 'Av. Rivadavia 1200'];
@@ -30,13 +35,9 @@ export class PedidoComponent implements OnInit {
   listaEnvios : string[][] = [['0-500 mts','$100.00'], ['501-1000 mts', '$140.00'], ['1001-1500 mts', '$180.00'], 
   ['1501-3000 mts', '$250.00'], ['3001-6000 mts', '$400.00'], ['6001-12000 mts', '$750.00']]
 
-  montoAPagar : string = this.listaEnvios[Math.floor(Math.random() * (6 - 1) + 1)][1];
+  
 
-  tipoEnvio : string = this.listaDomicilios.filter( elm => elm[1] == this.montoAPagar)[0];
-
-  constructor() {
-    console.log(this.tipoEnvio, this.montoAPagar)
-   }
+  constructor() {}
 
   ngOnInit(): void {
   }
@@ -95,16 +96,10 @@ export class PedidoComponent implements OnInit {
 
   }
 
-  // calcularEnvio(){
-
-  //   let random = Math.random() * (6 - 1) + 1;
-  //   this.tipoEnvio = this.listaDomicilios[Math.floor(Math.random() * (6 - 1) + 1)];
-  //   this.montoAPagar = this.listaCostosEnvios[Math.floor(Math.random() * (6 - 1) + 1)];
-
-  // }
-
-  
-
-
-
+  calcularEnvio(){
+    
+      let random = Math.random() * (6 - 1) + 1;
+      this.tipoEnvio = this.listaEnvios[Math.floor(Math.random() * (6 - 1) + 1)][0];
+      this.montoAPagar = this.listaEnvios.filter( elm => elm[0] == this.tipoEnvio)[0][1];
+  }
 }

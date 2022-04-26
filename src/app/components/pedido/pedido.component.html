@@ -126,13 +126,17 @@
         <fieldset class="form-group container ">
             <legend>Datos de Pago</legend>
             <div class="row center animated fadeInDown " *ngIf="direccionCom.valid && direccionEnt.valid && direccionEnt.touched">
-                <div class="form-floating col-md-6">
+
+                <div class="form-floating col-md-5">
                     <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" name="totalPago" [ngModel]="montoAPagar" disabled #totalPago="ngModel">
                     <label for="floatingInput">Total a pagar:</label>
                 </div>
-                <div class="form-floating col-md-6">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" name="tipoEnvio" [ngModel]="tipoEnvio" disabled #tipoEnvio="ngModel">
+                <div class="form-floating col-md-5">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" name="tipoDeEnvio" [ngModel]="tipoEnvio" disabled #tipoDeEnvio="ngModel">
                     <label for="floatingInput">Tipo de envio:</label>
+                </div>
+                <div class="col-md-2">
+                    <button id="btnEnvio" (click)="calcularEnvio()">Calcular envio</button>
                 </div>
             </div>
             <div class="row justify-content">
