@@ -27,6 +27,8 @@ export class PedidoComponent implements OnInit {
 
   domicilio : string = '';
 
+  montoPago : string = '';
+
   listaDomicilios : string[] = ['General Paz 25', 'Av. Sabatini 240', 'Colombia 200', 'General Paz 800', 'San Lucas 120', 
                                 'Buenos Aires 550', 'Rio Cuarto 45', 'Bv. San Juan 420', 'Lima 20', 'Bartolomé Mitre 600',
                                 'Azcuénaga 708', 'Av. Rivadavia 1200'];
@@ -35,7 +37,9 @@ export class PedidoComponent implements OnInit {
 
   listaCostosEnvios : string[] = ['$100.00', '$140.00', '$180.00', '$250.00', '$400.00', '$750.00'];
 
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit(): void {
   }
@@ -102,9 +106,7 @@ export class PedidoComponent implements OnInit {
 
   }
 
-  agregarBarra( fechaVenc : string ){
-    // hacer el comportamiento para que se agrega la barra cuando se escribieron 2 caracteres (MM/YYYY)
-  }
+  
 
 
 

@@ -54,8 +54,8 @@
             <div class="row">
                 <div class="row col-md-8" id="maps">
                     <div class="form-floating col-md-12">
-                        <input type="text" class="form-control" pattern="[a-zA-Z0-9 ]*" required id="floatingInput" placeholder="Leave a comment here" [ngModel]="domicilio" [ngClass]="{'is-invalid' : direccionCom.invalid && direccionCom.touched}" ngModel name="direccionCom"
-                            #direccionCom="ngModel">
+                        <input type="text" class="form-control" pattern="[a-zA-Z0-9áéíóú. ]*" minlength="4" required id="floatingInput" placeholder="Leave a comment here" [ngModel]="domicilio" [ngClass]="{'is-invalid' : direccionCom.invalid && direccionCom.touched}" ngModel
+                            name="direccionCom" #direccionCom="ngModel">
                         <div id="validationServer03Feedback" class="invalid-feedback">
                             Revise la dirección de comercio.
                         </div>
@@ -89,7 +89,7 @@
             <legend>Dirección de destino</legend>
             <div class="row">
                 <div class="form-floating col-md-6">
-                    <input type="text" class="form-control" required id="floatingInput" pattern="[a-zA-Z0-9 ]*" placeholder="Leave a comment here" [ngClass]="{'is-invalid' : direccionEnt.invalid && direccionEnt.touched}" ngModel name="direccionEnt" #direccionEnt="ngModel">
+                    <input type="text" class="form-control" required id="floatingInput" pattern="[a-zA-Z0-9áéíóú. ]*" minlength="4" placeholder="Leave a comment here" [ngClass]="{'is-invalid' : direccionEnt.invalid && direccionEnt.touched}" ngModel name="direccionEnt" #direccionEnt="ngModel">
                     <div id="validationServer03Feedback" class="invalid-feedback">
                         Revise la dirección de destino.
                     </div>
@@ -125,13 +125,13 @@
 
         <fieldset class="form-group container ">
             <legend>Datos de Pago</legend>
-            <div class="row center">
+            <div class="row center animated fadeInDown " *ngIf="direccionCom.valid && direccionEnt.valid && direccionEnt.touched">
                 <div class="form-floating col-md-6">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" [value]="montoAPagar" disabled>
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" [ngModel]="montoAPagar" disabled>
                     <label for="floatingInput">Total a pagar:</label>
                 </div>
                 <div class="form-floating col-md-6">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" [value]="montoAPagar" disabled>
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" [ngModel]="tipoEnvio" disabled>
                     <label for="floatingInput">Tipo de envio:</label>
                 </div>
             </div>
@@ -146,7 +146,7 @@
                     </div>
                     <div class="row center animated fadeInDown" *ngIf="radioMarcado1">
                         <div class="form-floating col-md-10 ">
-                            <input type="text" required class="form-control" id="floatingInput" pattern="[0-9 ]*" placeholder="Leave a comment here" [ngClass]="{'is-invalid' : pagoEfectivo.invalid && pagoEfectivo.touched}" ngModel name="pagoEfectivo" #pagoEfectivo="ngModel">
+                            <input type="text" required class="form-control" id="floatingInput" pattern="[0-9 ]*" placeholder="Leave a comment here" [ngClass]="{'is-invalid' : pagoEfectivo.invalid && pagoEfectivo.touched}" ngModel name="pagoEfectivo" #pagoEfectivo="ngModel" [(ngModel)]="montoPago">
                             <div id="validationServer03Feedback" class="invalid-feedback">
                                 Revise el monto.
                             </div>
@@ -182,8 +182,7 @@
                         </div>
                         <div class="row center">
                             <div class="form-floating col-md-5">
-                                <input type="text" class="form-control" required id="floatingInput" maxlength="7" pattern="\d{1,2}\/\d{4}" placeholder="Leave a comment here" [ngClass]="{'is-invalid' : vencTarjeta.invalid && vencTarjeta.touched}" ngModel name="vencTarjeta" #vencTarjeta="ngModel"
-                                    (keyup)="agregarBarra(vencTarjeta.value)">
+                                <input type="text" class="form-control" required id="floatingInput" maxlength="7" pattern="\d{1,2}\/\d{4}" placeholder="Leave a comment here" [ngClass]="{'is-invalid' : vencTarjeta.invalid && vencTarjeta.touched}" ngModel name="vencTarjeta" #vencTarjeta="ngModel">
                                 <div id="validationServer03Feedback" class="invalid-feedback">
                                     Revise la fecha de vencimiento.
                                 </div>
