@@ -127,11 +127,11 @@
             <legend>Datos de Pago</legend>
             <div class="row center animated fadeInDown " *ngIf="direccionCom.valid && direccionEnt.valid && direccionEnt.touched">
                 <div class="form-floating col-md-6">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" [ngModel]="montoAPagar" disabled>
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" name="totalPago" [ngModel]="montoAPagar" disabled #totalPago="ngModel">
                     <label for="floatingInput">Total a pagar:</label>
                 </div>
                 <div class="form-floating col-md-6">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" [ngModel]="tipoEnvio" disabled>
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Leave a comment here" name="tipoEnvio" [ngModel]="tipoEnvio" disabled #tipoEnvio="ngModel">
                     <label for="floatingInput">Tipo de envio:</label>
                 </div>
             </div>
@@ -146,7 +146,7 @@
                     </div>
                     <div class="row center animated fadeInDown" *ngIf="radioMarcado1">
                         <div class="form-floating col-md-10 ">
-                            <input type="text" required class="form-control" id="floatingInput" pattern="[0-9 ]*" placeholder="Leave a comment here" [ngClass]="{'is-invalid' : pagoEfectivo.invalid && pagoEfectivo.touched}" ngModel name="pagoEfectivo" #pagoEfectivo="ngModel" [(ngModel)]="montoPago">
+                            <input type="text" required class="form-control" id="floatingInput" pattern="[0-9 ]*" placeholder="Leave a comment here" [ngClass]="{'is-invalid' : pagoEfectivo.invalid && pagoEfectivo.touched}" ngModel name="pagoEfectivo" #pagoEfectivo="ngModel">
                             <div id="validationServer03Feedback" class="invalid-feedback">
                                 Revise el monto.
                             </div>

@@ -9,9 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class PedidoComponent implements OnInit {
 
-  montoAPagar: string = '';
-
-  tipoEnvio : string = '';
+  
 
   radioMarcado1: boolean = false;
   radioMarcado2: boolean = false;
@@ -36,10 +34,12 @@ export class PedidoComponent implements OnInit {
   listaTipoEnvios : string[] = ['0-500 mts', '501-1000 mts', '1001-1500 mts', '1501-3000 mts', '3001-6000 mts', '6001-12000 mts'];
 
   listaCostosEnvios : string[] = ['$100.00', '$140.00', '$180.00', '$250.00', '$400.00', '$750.00'];
+  
+  montoAPagar : string = this.listaCostosEnvios[Math.floor(Math.random() * (6 - 1) + 1)];
 
-  constructor() { 
+  tipoEnvio : string = this.listaTipoEnvios[Math.floor(Math.random() * (6 - 1) + 1)];
 
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -98,13 +98,13 @@ export class PedidoComponent implements OnInit {
 
   }
 
-  calcularEnvio(){
+  // calcularEnvio(){
 
-    let random = Math.random() * (6 - 1) + 1;
-    this.tipoEnvio = this.listaDomicilios[Math.floor(random)];
-    this.montoAPagar = this.listaCostosEnvios[Math.floor(random)];
+  //   let random = Math.random() * (6 - 1) + 1;
+  //   this.tipoEnvio = this.listaDomicilios[Math.floor(Math.random() * (6 - 1) + 1)];
+  //   this.montoAPagar = this.listaCostosEnvios[Math.floor(Math.random() * (6 - 1) + 1)];
 
-  }
+  // }
 
   
 
