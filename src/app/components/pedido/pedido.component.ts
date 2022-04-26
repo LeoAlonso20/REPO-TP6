@@ -30,6 +30,8 @@ export class PedidoComponent implements OnInit {
 
   tipoEnvio : string = '';
 
+  numT : string =''
+
   listaDomicilios : string[] = ['General Paz 25', 'Av. Sabatini 240', 'Colombia 200', 'General Paz 800', 'San Lucas 120', 
                                 'Buenos Aires 550', 'Rio Cuarto 45', 'Bv. San Juan 420', 'Lima 20', 'Bartolomé Mitre 600',
                                 'Azcuénaga 708', 'Av. Rivadavia 1200'];
@@ -117,4 +119,7 @@ export class PedidoComponent implements OnInit {
       this.montoAPagar = this.listaEnvios.filter( elm => elm[0] == this.tipoEnvio)[0][1];
 
   }
+
 }
+
+ 

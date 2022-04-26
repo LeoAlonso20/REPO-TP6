@@ -42,6 +42,10 @@ img {
     cursor: pointer;
 }
 
+legend {
+    color: #63A46C;
+}
+
 .center {
     align-items: center;
     justify-content: center;
@@ -54,6 +58,7 @@ p#tittle {
     align-items: center;
     justify-content: center;
     display: flex;
+    color: #6A7152;
 }
 
 div .form-check {
